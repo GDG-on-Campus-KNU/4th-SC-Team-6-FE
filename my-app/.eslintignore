@@ -24,4 +24,8 @@ coverage/
 *.config.js
 
 # 패키지 관리
+<<<<<<< HEAD
 package-lock.json
+=======
+package-lock.json
+>>>>>>> da158c5 (chore: update Prettier and ESLint configurations)
