@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import globals from 'globals';
 import js from '@eslint/js';
 import react from 'eslint-plugin-react';
@@ -39,3 +40,17 @@ export default [
   // Prettier와 충돌하는 ESLint 규칙 비활성화
   prettierConfig,
 ];
+=======
+import globals from "globals";
+import pluginJs from "@eslint/js";
+import pluginReact from "eslint-plugin-react";
+
+
+/** @type {import('eslint').Linter.Config[]} */
+export default [
+  {files: ["**/*.{js,mjs,cjs,jsx}"]},
+  {languageOptions: { globals: globals.browser }},
+  pluginJs.configs.recommended,
+  pluginReact.configs.flat.recommended,
+];
+>>>>>>> 0ee79a9 (initial commit)
