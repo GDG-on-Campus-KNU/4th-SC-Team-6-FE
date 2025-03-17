@@ -6,8 +6,7 @@ build/
 node_modules/
 
 # 환경 설정 파일
-.prettierrc
-.eslint.config.mjs
+.eslintrc.cjs
 
 # 로그 파일
 npm-debug.log
