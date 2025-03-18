@@ -9,6 +9,7 @@ node_modules/
 .prettierrc
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 .eslint.config.mjs
 =======
 ** eslint.config.js -> 자신이 사용하는 확장자명으로 바꿔주기 **
@@ -16,6 +17,9 @@ node_modules/
 =======
 .eslint.config.mjs
 >>>>>>> da158c5 (chore: update Prettier and ESLint configurations)
+=======
+** eslint.config.js -> 자신이 사용하는 확장자명으로 바꿔주기 **
+>>>>>>> 6452557 (fix: 충돌해결)
 
 # 로그 파일
 npm-debug.log
