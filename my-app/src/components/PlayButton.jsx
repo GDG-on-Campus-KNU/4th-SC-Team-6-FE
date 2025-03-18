@@ -1,11 +1,16 @@
 import { useNavigate } from "react-router-dom";
 
+<<<<<<< HEAD
 const PlayButton = ({ to, children = "합주하기", className = "" }) => {
+=======
+const PlayButton =({to,children})=>{
+>>>>>>> a7103de (fix: 충돌해결)
   const navigate = useNavigate();
 
   const handleClick = () => {
     navigate(to);
   };
+<<<<<<< HEAD
 
   return (
     <div className={`${className}`}>
@@ -36,3 +41,16 @@ const PlayButton = ({ to, children = "합주하기", className = "" }) => {
 export default PlayButton;
 
 
+=======
+}
+
+return(
+  <button
+  onClick={handleClick}
+    className="flex justify-center items-center w-[143px] h-[60px] rounded-xl shadow bg-blue-500 text-white hover:bg-blue-600"
+   style={{width:'48px',height:'48px' }}
+  >
+    {children || 연주하기 }
+  </button>
+)
+>>>>>>> a7103de (fix: 충돌해결)

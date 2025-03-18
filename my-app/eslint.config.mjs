@@ -1,11 +1,14 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import globals from "globals";
 import pluginJs from "@eslint/js";
 import pluginReact from "eslint-plugin-react";
 =======
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> a7103de (fix: 충돌해결)
 <<<<<<< HEAD
 =======
 >>>>>>> da158c5 (chore: update Prettier and ESLint configurations)
@@ -16,10 +19,18 @@ import react from 'eslint-plugin-react';
 import prettier from 'eslint-plugin-prettier';
 import prettierConfig from 'eslint-config-prettier';
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> bf0985a (initial commit)
 =======
 <<<<<<< HEAD
 >>>>>>> bd6bb98 (chore: update Prettier and ESLint configurations)
+=======
+=======
+import globals from "globals";
+import pluginJs from "@eslint/js";
+import pluginReact from "eslint-plugin-react";
+>>>>>>> 6452557 (fix: 충돌해결)
+>>>>>>> a7103de (fix: 충돌해결)
 
 
 /** @type {import('eslint').Linter.Config[]} */
