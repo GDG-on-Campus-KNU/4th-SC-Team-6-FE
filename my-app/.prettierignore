@@ -7,7 +7,7 @@ node_modules/
 
 # 환경 설정 파일
 .prettierrc
-.eslint.config.mjs
+** eslint.config.js -> 자신이 사용하는 확장자명으로 바꿔주기 **
 
 # 로그 파일
 npm-debug.log
