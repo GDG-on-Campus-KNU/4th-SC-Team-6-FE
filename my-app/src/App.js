@@ -4,8 +4,16 @@ import Navigation from './components/Navigation';
 import AppRouter from './routes/Routers';
 import Header from './components/Header';
 
+//test
+
+import PlayButton from './components/PlayButton';
+import MusicCard from './components/MusicCard';
+import MusicCardBig from './components/MusicCardBig';
+
+
 function App() {
   return (
+
     <div className="relative h-[852px] w-[393px] overflow-hidden bg-gradient-to-b from-[rgba(129,216,207,0.3)] via-[#81D8CF] to-[rgba(129,216,207,0.4)]">
       {/* 배경 요소 */}
       <div className="-z-10">
@@ -20,6 +28,7 @@ function App() {
         <AppRouter className="z-40" />
       </BrowserRouter>
     </div>
+
   );
 }
 
