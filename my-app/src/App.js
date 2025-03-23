@@ -7,9 +7,7 @@ import Header from './components/Header';
 //test
 
 import PlayButton from './components/PlayButton';
-import MusicCard from './components/MusicCard';
-import MusicCardBig from './components/MusicCardBig';
-
+import WearableButton from './components/WearableButton';
 
 function App() {
   return (
@@ -18,9 +16,8 @@ function App() {
       <AppRouter />
       <Navigation />
       <PlayButton to="/"></PlayButton>
-      <MusicCard titile="Oasis - Live Fore.." to ="/"/>
-      <MusicCardBig title="먼지가 되어 Cover" to="/" />
 
+      <WearableButton />
     </BrowserRouter>
   );
 }
