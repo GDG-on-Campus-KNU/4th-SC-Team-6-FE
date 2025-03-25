@@ -1,15 +1,9 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AiFillHome, AiOutlineUser } from 'react-icons/ai';
 import { IoMdPeople } from 'react-icons/io';
 import { MdFeedback } from 'react-icons/md';
 
 export default function Navigation() {
-  const navigate = useNavigate();
-
-  function handleNavigate(path) {
-    navigate(path);
-  }
-
   const menuItems = [
     {
       label: 'Home',
@@ -37,16 +31,14 @@ export default function Navigation() {
     <footer className="fixed bottom-0 left-0 z-50 flex h-[60px] w-full items-center justify-around border-t border-gray-200 bg-white/80 px-2 sm:px-6 md:px-8">
       {menuItems.map(function (item) {
         return (
-          <button
+          <Link
+            to={item.path}
             key={item.label}
-            onClick={function () {
-              handleNavigate(item.path);
-            }}
             className="flex w-1/4 flex-col items-center justify-center text-black transition-all hover:text-blue-600 active:scale-95"
           >
             {item.icon}
             <span className="mt-1 text-xs font-medium">{item.label}</span>
-          </button>
+          </Link>
         );
       })}
     </footer>
