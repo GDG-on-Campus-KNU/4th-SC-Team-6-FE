@@ -4,9 +4,9 @@ import { GoDotFill } from 'react-icons/go';
 const RecordButton = () => {
   const [isRecording, setIsRecording] = useState(false);
 
-  const handleRecordClick = () => {
+  function handleRecordClick() {
     setIsRecording((prev) => !prev);
-  };
+  }
 
   return (
     <button
