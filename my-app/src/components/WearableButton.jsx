@@ -5,9 +5,7 @@ const WearableButton = () => {
   const [isConnected, setIsConnected] = useState(false);
 
   function handleConnect() {
-    setIsConnected(function (prev) {
-      return !prev;
-    });
+    setIsConnected((prev) => !prev);
   }
 
   return (
