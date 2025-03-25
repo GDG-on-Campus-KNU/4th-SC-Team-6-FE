@@ -7,7 +7,11 @@ node_modules/
 
 # 환경 설정 파일
 .prettierrc
+<<<<<<< HEAD
+** eslint.config.js -> 자신이 사용하는 확장자명으로 바꿔주기 **
+=======
 .eslint.config.mjs
+>>>>>>> f1dfc94cc3e7c1f079860d1b131c5a50e8e5f0df
 
 # 로그 파일
 npm-debug.log
@@ -25,4 +29,8 @@ coverage/
 *.config.js
 
 # 패키지 관리
+<<<<<<< HEAD
 package-lock.json
+=======
+package-lock.json
+>>>>>>> f1dfc94cc3e7c1f079860d1b131c5a50e8e5f0df
