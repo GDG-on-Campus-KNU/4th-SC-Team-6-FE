@@ -24,4 +24,8 @@ coverage/
 *.config.js
 
 # 패키지 관리
+<<<<<<< HEAD
 package-lock.json
+=======
+package-lock.json
+>>>>>>> f1dfc94cc3e7c1f079860d1b131c5a50e8e5f0df
