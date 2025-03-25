@@ -1,38 +1,26 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
-const PlayButton = ({ to, children = "합주하기", className = "" }) => {
+function PlayButton({ to, children = 'Play', className = '' }) {
   const navigate = useNavigate();
 
-  const handleClick = () => {
+  function handleClick() {
     navigate(to);
-  };
+  }
 
   return (
-    <div className={`${className}`}>
+    <div className={className}>
       <div
-        className="
-          relative w-[143px] h-[60px] sm:w-[120px] sm:h-[50px] xs:w-[100px] xs:h-[40px] 
-          cursor-pointer"
+        className="relative size-16 w-32 cursor-pointer transition-transform active:scale-95"
         onClick={handleClick}
       >
-        
-        <div className="
-          absolute inset-0 rounded-[30px] bg-[#203f9a] shadow-md 
-          transition-transform duration-200 active:scale-95
-        " />
+        <div className="absolute inset-0 rounded-[30px] bg-white/50 shadow-md" />
 
-      
-        <p className="
-          absolute inset-0 flex items-center justify-center 
-          text-[25px] sm:text-[20px] xs:text-[16px] font-bold text-[#f7f2eb]
-        ">
+        <p className="absolute inset-0 flex items-center justify-center text-base font-bold text-black">
           {children}
         </p>
       </div>
     </div>
   );
-};
+}
 
 export default PlayButton;
-
-
