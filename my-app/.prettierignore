@@ -7,7 +7,23 @@ node_modules/
 
 # 환경 설정 파일
 .prettierrc
+<<<<<<< HEAD
 ** eslint.config.js -> 자신이 사용하는 확장자명으로 바꿔주기 **
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+.eslint.config.mjs
+=======
+** eslint.config.js -> 자신이 사용하는 확장자명으로 바꿔주기 **
+>>>>>>> 0ee79a9 (initial commit)
+=======
+.eslint.config.mjs
+>>>>>>> da158c5 (chore: update Prettier and ESLint configurations)
+=======
+** eslint.config.js -> 자신이 사용하는 확장자명으로 바꿔주기 **
+>>>>>>> 6452557 (fix: 충돌해결)
+>>>>>>> develop
 
 # 로그 파일
 npm-debug.log
@@ -25,4 +41,12 @@ coverage/
 *.config.js
 
 # 패키지 관리
+<<<<<<< HEAD
 package-lock.json
+=======
+<<<<<<< HEAD
+package-lock.json
+=======
+package-lock.json
+>>>>>>> 0ee79a9 (initial commit)
+>>>>>>> develop
