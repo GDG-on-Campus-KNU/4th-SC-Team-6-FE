@@ -2,8 +2,7 @@ import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { gsap } from 'gsap';
-
-export default function Home() {
+export default function Animation3D() {
   function initCube() {
     const cubeGeometry = new THREE.IcosahedronGeometry(1); // 높이, 깊이, 너비
     const cubeMaterial = new THREE.MeshLambertMaterial({
@@ -172,7 +171,6 @@ export default function Home() {
       renderer.dispose();
     };
   }, []);
-
   return (
     <div className="flex h-screen w-full items-center justify-center">
       <div
