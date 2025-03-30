@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
-    <div className="relative mx-auto h-[55px] w-full max-w-[400px] px-5">
+    <nav className="relative mx-auto h-[55px] w-full max-w-[400px] px-5">
       <div className="absolute h-full w-full bg-transparent" />
 
       <Link
@@ -18,7 +18,6 @@ export default function Header() {
       >
         About Us
       </Link>
-    </div>
+    </nav>
   );
 }
-
