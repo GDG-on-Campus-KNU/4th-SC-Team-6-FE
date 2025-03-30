@@ -28,7 +28,7 @@ export default function Navigation() {
   ];
 
   return (
-    <footer className="fixed bottom-0 left-0 z-50 flex h-[60px] w-full items-center justify-around border-t border-gray-200 bg-white/80 px-2 sm:px-6 md:px-8">
+    <nav className="fixed bottom-0 left-0 z-50 flex h-[60px] w-full items-center justify-around border-t border-gray-200 bg-white/80 px-2 sm:px-6 md:px-8">
       {menuItems.map(function (item) {
         return (
           <Link
@@ -41,7 +41,6 @@ export default function Navigation() {
           </Link>
         );
       })}
-    </footer>
+    </nav>
   );
 }
-
