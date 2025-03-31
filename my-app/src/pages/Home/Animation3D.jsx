@@ -41,7 +41,7 @@ export default function Animation3D() {
     // Scene, Camera, Renderer 생성
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(size.width, size.height);
-    mountRef.current.appendChild(renderer.domElement); // DOM에 추가
+    container.appendChild(renderer.domElement); // DOM에 추가
 
     // 배경 클리어(초기화)
     renderer.setClearColor(
