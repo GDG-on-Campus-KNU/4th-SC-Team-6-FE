@@ -1,45 +1,11 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> da158c5 (chore: update Prettier and ESLint configurations)
 import globals from 'globals';
 import js from '@eslint/js';
 import react from 'eslint-plugin-react';
 import prettier from 'eslint-plugin-prettier';
 import prettierConfig from 'eslint-config-prettier';
-<<<<<<< HEAD
-=======
-import globals from "globals";
-import pluginJs from "@eslint/js";
-import pluginReact from "eslint-plugin-react";
->>>>>>> 6452557 (fix: 충돌해결)
-
-
-/** @type {import('eslint').Linter.Config[]} */
-export default [
-  {files: ["**/*.{js,mjs,cjs,jsx}"]},
-  {languageOptions: { globals: globals.browser }},
-  pluginJs.configs.recommended,
-  pluginReact.configs.flat.recommended,
-];
-=======
-import globals from "globals";
-import pluginJs from "@eslint/js";
-import pluginReact from "eslint-plugin-react";
-=======
->>>>>>> da158c5 (chore: update Prettier and ESLint configurations)
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
-<<<<<<< HEAD
-  {files: ["**/*.{js,mjs,cjs,jsx}"]},
-  {languageOptions: { globals: globals.browser }},
-  pluginJs.configs.recommended,
-  pluginReact.configs.flat.recommended,
-];
->>>>>>> 0ee79a9 (initial commit)
-=======
   {
     files: ['**/*.{js,jsx,mjs,cjs}'],
     languageOptions: {
@@ -73,4 +39,3 @@ export default [
   // Prettier와 충돌하는 ESLint 규칙 비활성화
   prettierConfig,
 ];
->>>>>>> da158c5 (chore: update Prettier and ESLint configurations)
