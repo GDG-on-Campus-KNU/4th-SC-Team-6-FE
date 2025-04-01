@@ -7,17 +7,9 @@ const MusicCardBig = ({
 }) => {
   return (
     <div className="relative w-full max-w-[170px] aspect-[170/234] bg-[#F2F3F7] rounded-[20px] shadow-md p-4 flex flex-col items-center">
-
-     
-
-  
       <p className="text-black font-bold text-base md:text-sm sm:text-xs text-center mt-4">
         {title}
-      </p>
-
-  
-      
-        
+      </p>      
       <div className="flex justify-center items-end w-full pb-4">
         <PlayButton to={to} />
       </div>
