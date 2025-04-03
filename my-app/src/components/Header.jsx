@@ -2,24 +2,24 @@ import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
-    <nav className="absolute left-0 top-0 flex h-[55px] w-[393px] items-center justify-between px-4 backdrop-blur-[8px]">
-      {/* The Feelody (로고) */}
+
+    <nav className="relative mx-auto h-[55px] w-full max-w-[400px] px-5">
+      <div className="absolute h-full w-full bg-transparent" />
+
       <Link
-        to="/"
-        className="text-[24px] font-extrabold leading-[28px] text-black/85"
+        to="/main"
+        className="absolute left-5 top-3.5 cursor-pointer text-2xl font-bold text-black/85 transition-colors duration-200 hover:text-[#3058d6] active:scale-95"
       >
         The Feelody
       </Link>
 
-      {/* About Us */}
-      <div className="flex gap-4">
-        <Link
-          to="/aboutUs"
-          className="text-[15px] font-semibold leading-[18px] text-black"
-        >
-          About Us
-        </Link>
-      </div>
+
+      <Link
+        to="/about"
+        className="absolute right-5 top-[22px] cursor-pointer text-sm font-semibold text-black transition-colors duration-200 hover:text-[#3058d6] active:scale-95"
+      >
+        About Us
+      </Link>
     </nav>
   );
 }
