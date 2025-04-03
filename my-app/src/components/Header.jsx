@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
+
     <nav className="relative mx-auto h-[55px] w-full max-w-[400px] px-5">
       <div className="absolute h-full w-full bg-transparent" />
 
@@ -11,6 +12,7 @@ export default function Header() {
       >
         The Feelody
       </Link>
+
 
       <Link
         to="/about"
