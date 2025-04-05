@@ -8,7 +8,7 @@ export default function Navigation() {
     {
       label: 'Home',
       icon: <AiFillHome size={24} />,
-      path: '/main',
+      path: '/',
     },
     {
       label: 'Community',
@@ -28,16 +28,16 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 z-50 flex h-[60px] w-full items-center justify-around border-t border-gray-200 bg-white/80 px-2 sm:px-6 md:px-8">
+    <nav className='fixed bottom-0 left-0 z-50 flex h-[60px] w-full items-center justify-around border-t border-gray-200 bg-white/80 px-2 sm:px-6 md:px-8'>
       {menuItems.map(function (item) {
         return (
           <Link
             to={item.path}
             key={item.label}
-            className="flex w-1/4 flex-col items-center justify-center text-black transition-all hover:text-blue-600 active:scale-95"
+            className='flex w-1/4 flex-col items-center justify-center text-black transition-all hover:text-blue-600 active:scale-95'
           >
             {item.icon}
-            <span className="mt-1 text-xs font-medium">{item.label}</span>
+            <span className='mt-1 text-xs font-medium'>{item.label}</span>
           </Link>
         );
       })}

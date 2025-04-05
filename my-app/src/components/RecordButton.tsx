@@ -11,12 +11,9 @@ const RecordButton = () => {
   return (
     <button
       onClick={handleRecordClick}
-      className={`flex h-[60px] w-[60px] items-center justify-center rounded-full shadow-lg ${isRecording ? 'bg-red-500' : 'bg-black bg-opacity-50'} `}
+      className={`flex h-[60px] w-[60px] items-center justify-center rounded-full shadow-lg ${isRecording ? 'bg-red-500' : 'bg-opacity-50 bg-black'} `}
     >
-      <GoDotFill
-        size={60}
-        color="red"
-      />
+      <GoDotFill size={60} color='red' />
     </button>
   );
 };

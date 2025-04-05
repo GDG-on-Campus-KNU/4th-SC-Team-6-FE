@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    // 모듈 시스템 설정 (Vite는 ESNext 사용)
+    "module": "ESNext",
+
+    // 최신 JavaScript 출력
+    "target": "ESNext",
+
+    // JSX 지원 (React)
+    "jsx": "react-jsx",
+
+    // TypeScript strict mode (강력 추천)
+    "strict": true,
+
+    // 모듈 해석 방식 (Node 기반)
+    "moduleResolution": "Node",
+
+    // import 경로 상대 대신 절대경로 등 사용 시 필요
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["components/*"],
+      "@pages/*": ["pages/*"],
+      "@routes/*": ["routes/*"],
+      "@assets/*": ["assets/*"]
+    },
+
+    // 빌드시 JS도 생성 (보통 필요 X)
+    "noEmit": true,
+
+    // import 할 때 확장자 안 붙여도 됨
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src"], // 포함할 디렉토리
+  "exclude": ["node_modules", "dist"] // 제외할 디렉토리
+}
