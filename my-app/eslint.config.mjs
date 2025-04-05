@@ -33,7 +33,7 @@ export default [
       'react/react-in-jsx-scope': 'off',
       'react/jsx-uses-react': 'off',
 
-      // ypeScript 환경에서는 PropTypes를 안 써도 되니까 끔
+      // TypeScript 환경에서는 PropTypes를 안 써도 되니까 끔
       'react/prop-types': 'off',
 
       // React Hook 관련 규칙 (오류, 경고)
