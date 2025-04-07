@@ -2,27 +2,21 @@
 dist/
 build/
 
-# Node.js 모듈
+# 의존성
 node_modules/
 
-# 환경 설정 파일
-.prettierrc
-.eslint.config.mjs
-
 # 로그 파일
-npm-debug.log
-yarn-debug.log
-yarn-error.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# 프로젝트 루트에서 제외된 다른 파일들
-public/
+# 테스트 결과물
 coverage/
 
-# 기타
+# 정적 자산
+public/
+
+# 에디터/OS 설정
 .vscode/
 .idea/
 .DS_Store
-*.config.js
-
-# 패키지 관리
-package-lock.json
