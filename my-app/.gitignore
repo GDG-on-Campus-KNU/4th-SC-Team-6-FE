@@ -1,23 +1,37 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# production
-/build
-
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
+# 로그 파일 (개발 중 생기는 에러 로그들)
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node.js 의존성 폴더 (npm install 시 자동 생성됨)
+node_modules
+
+# 빌드 결과물 (Vite, TypeScript 등)
+dist
+dist-ssr
+*.tsbuildinfo  
+
+# 환경 변수 파일 (API 키, 민감 정보 등)
+.env
+.env.*.local   
+
+# 에디터 및 운영체제 설정 파일
+.vscode/*           
+!.vscode/extensions.json  
+.idea               
+.DS_Store           
+*.suo         
+*.ntvs*            
+*.njsproj          
+*.sln               
+*.sw?               
+
+# 테스트 결과 (Jest, Vitest 등 커버리지 리포트)
+coverage/
+
+# 선택적으로 무시할 설정 파일들 (포매터, 린터용 ignore)
+# .prettierignore
