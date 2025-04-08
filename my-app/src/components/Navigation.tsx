@@ -28,19 +28,19 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 z-50 flex h-[60px] w-full items-center justify-around border-t border-gray-200 bg-white/80 px-2 sm:px-6 md:px-8">
-      {menuItems.map(function (item) {
-        return (
+    <div className="fixed bottom-4 z-[11] h-[55px] w-full px-4">
+      <nav className="mx-auto flex h-full max-w-[900px] items-center rounded-[20px] bg-white/10 shadow-md backdrop-blur-[10px]">
+        {menuItems.map((item) => (
           <Link
-            to={item.path}
             key={item.label}
-            className="flex w-1/4 flex-col items-center justify-center text-black transition-all hover:text-blue-600 active:scale-95"
+            to={item.path}
+            className="flex w-[25%] flex-col items-center justify-center"
           >
             {item.icon}
-            <span className="mt-1 text-xs font-medium">{item.label}</span>
+            <span className="text-xs font-medium">{item.label}</span>
           </Link>
-        );
-      })}
-    </nav>
+        ))}
+      </nav>
+    </div>
   );
 }

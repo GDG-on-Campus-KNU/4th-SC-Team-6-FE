@@ -1,1 +1,7 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+// 전역 스타일 설정
+@layer base {
+  body {
+    @apply overflow-x-hidden text-[14px] leading-[1.2] tracking-[-0.05em];
+  }
+}
