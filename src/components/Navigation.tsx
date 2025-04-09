@@ -4,25 +4,26 @@ import { IoMdPeople } from 'react-icons/io';
 import { MdFeedback } from 'react-icons/md';
 
 export default function Navigation() {
+  const iconSize = 22;
   const menuItems = [
     {
       label: 'Home',
-      icon: <AiFillHome size={24} />,
+      icon: <AiFillHome size={iconSize} />,
       path: '/',
     },
     {
       label: 'Community',
-      icon: <IoMdPeople size={24} />,
+      icon: <IoMdPeople size={iconSize} />,
       path: '/community',
     },
     {
       label: 'Feedback',
-      icon: <MdFeedback size={24} />,
+      icon: <MdFeedback size={iconSize} />,
       path: '/feedback',
     },
     {
       label: 'My Page',
-      icon: <AiOutlineUser size={24} />,
+      icon: <AiOutlineUser size={iconSize} />,
       path: '/mypage',
     },
   ];
