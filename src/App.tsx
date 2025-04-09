@@ -1,5 +1,4 @@
 import './App.css';
-import { BrowserRouter } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Header from './components/Header';
 import AppRouter from './routes/Routers';
@@ -13,11 +12,9 @@ function App() {
       {/* gradient blur 2 */}
       <div className="absolute top-[50vh] left-[65vw] h-[234.06px] w-[235.49px] bg-gradient-to-b from-[#81D8CF] to-[#7061A3] blur-[75px]"></div>
 
-      <BrowserRouter>
-        <Header />
-        <Navigation />
-        <AppRouter />
-      </BrowserRouter>
+      <Header />
+      <Navigation />
+      <AppRouter />
     </div>
   );
 }
