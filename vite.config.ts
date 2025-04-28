@@ -5,4 +5,5 @@ import tailwindcss from '@tailwindcss/vite';
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  assetsInclude: ['**/*.gltf', '**/*.glb'], // .gltf 파일을 인식
 });
