@@ -20,6 +20,7 @@ export function loadLight(scene: THREE.Scene) {
   hemisphereLight.position.set(0, 20, 10);
   scene.add(hemisphereLight);
 
+  // TODO: spotLight 추가
   //   const spotLight = new THREE.SpotLight(
   //     0xffffff,
   //     1.5,
