@@ -10,11 +10,11 @@ export async function loadCharacter(scene: THREE.Scene, camera: THREE.Camera) {
   const model = gltf.scene;
   model.scale.set(0.1, 0.1, 0.1);
   // 모델의 그림자를 설정 할 수 있도록
+  /** Three.js의 Object3D는 기본적으로 isMesh 같은 속성을 가지고 있지 않다고 타입 시스템이 인식
+  하지만 실제로 런타임에서는 child가 Mesh 타입이면 isMesh === true
+  -> child가 Mesh인지 안전하게 타입 체크: instanceof THREE.Mesh를 사용
+  */
   model.traverse((object) => {
-    /** Three.js의 Object3D는 기본적으로 isMesh 같은 속성을 가지고 있지 않다고 타입 시스템이 인식
-              하지만 실제로 런타임에서는 child가 Mesh 타입이면 isMesh === true
-              -> child가 Mesh인지 안전하게 타입 체크: instanceof THREE.Mesh를 사용
-           */
     if (object instanceof THREE.Mesh) {
       object.castShadow = true;
       object.receiveShadow = true; // 필요에 따라
