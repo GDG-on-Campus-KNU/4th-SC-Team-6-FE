@@ -11,4 +11,28 @@
     opacity: 1 !important;
     display: inline-block;
   }
+
+  .custom-progress {
+    width: 100%;
+    height: 1rem;
+    border-radius: 9999px;
+    background-color: #e0e0e0;
+    overflow: hidden;
+  }
+
+  .custom-progress::-webkit-progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 9999px;
+  }
+
+  .custom-progress::-webkit-progress-value {
+    background-color: #81d8cf;
+    border-radius: 9999px;
+    transition: width 0.3s ease;
+  }
+
+  .custom-progress::-moz-progress-bar {
+    background-color: #81d8cf;
+    border-radius: 9999px;
+  }
 }

@@ -1,9 +1,11 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
-export async function loadCharacter(scene: THREE.Scene, camera: THREE.Camera) {
-  const loadingManager = new THREE.LoadingManager();
-
+export async function loadCharacter(
+  scene: THREE.Scene,
+  camera: THREE.Camera,
+  loadingManager: THREE.LoadingManager
+) {
   // GLTFLoader의 로딩 상태를 loadingManager로 관리할 수 있음
   const gltfLoader = new GLTFLoader(loadingManager);
   const gltf = await gltfLoader.loadAsync('/public/models/character.gltf');
