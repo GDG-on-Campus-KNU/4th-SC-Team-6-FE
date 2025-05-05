@@ -8,12 +8,14 @@ import { getSize } from '../utils/getSize';
 import RecordButton from '../../../components/RecordButton';
 import WearableButton from '../../../components/WearableButton';
 import Metronome from './Metronome';
+import ProgressBar from './ProgressBar';
 
 export default function Animation3D() {
   const mountRef = useRef<HTMLDivElement | null>(null);
 
   const particleGroupsRef = useRef<THREE.Points[]>([]);
   const [ready, setReady] = useState(false);
+  const loadingManager = new THREE.LoadingManager();
 
   useEffect(() => {
     const run = async () => {
@@ -41,7 +43,7 @@ export default function Animation3D() {
 
       /** 요소 불러오기*/
       await loadFont(scene);
-      const mixer = await loadCharacter(scene, camera);
+      const mixer = await loadCharacter(scene, camera, loadingManager);
       loadLight(scene);
 
       const particleGroups: THREE.Points[] = [];
@@ -89,8 +91,10 @@ export default function Animation3D() {
     <>
       <div
         ref={mountRef}
-        className="z-10 h-5/7 w-4/5 overflow-hidden rounded-2xl"
-      ></div>
+        className="relative z-10 h-5/7 w-4/5 overflow-hidden rounded-2xl"
+      >
+        <ProgressBar loadingManager={loadingManager} />
+      </div>
       <div className="flex items-center justify-center gap-6 pt-2">
         <RecordButton />
         <WearableButton />
