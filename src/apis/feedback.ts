@@ -6,7 +6,6 @@ export interface FeedbackDetail {
   title: string;
   artist: string;
   score: number;
-  message: string;
   createdAt: string;
 }
 
