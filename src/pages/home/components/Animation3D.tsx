@@ -17,6 +17,10 @@ export default function Animation3D() {
   const [ready, setReady] = useState(false);
   const loadingManager = new THREE.LoadingManager();
 
+  const [currentNote, setCurrentNote] = useState<string | null>(null);
+
+  console.log(`엄마 컴포넌트: ${currentNote}`);
+
   useEffect(() => {
     const run = async () => {
       const container = mountRef.current;
@@ -96,7 +100,9 @@ export default function Animation3D() {
         <ProgressBar loadingManager={loadingManager} />
       </div>
       <div className="flex items-center justify-center gap-6 pt-2">
-        <RecordButton />
+        <RecordButton
+          onNoteDetected={(detectedNote) => setCurrentNote(detectedNote)}
+        />
         <WearableButton />
         {ready && <Metronome particleGroups={particleGroupsRef.current} />}
       </div>
