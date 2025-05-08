@@ -2,7 +2,11 @@ import { useState, useRef } from 'react';
 import { GoDotFill } from 'react-icons/go';
 import { YIN } from 'pitchfinder';
 
-const RecordButton = () => {
+interface RecordButtonProps {
+  onNoteDetected: (note: string) => void; // ⚡️ 부모로 note 전달할 callback
+}
+
+const RecordButton = ({ onNoteDetected }: RecordButtonProps) => {
   const [isRecording, setIsRecording] = useState(false);
   const audioCtxRef = useRef<AudioContext | null>(null);
   const analyserRef = useRef<AnalyserNode | null>(null);
@@ -52,8 +56,9 @@ const RecordButton = () => {
 
         // 이전 note와 비교해서 다를 때만 출력
         if (note !== previousNoteRef.current) {
-          console.log(`Detected note: ${note}`);
+          // console.log(`Detected note: ${note}`);
           previousNoteRef.current = note; // 현재 note 저장
+          onNoteDetected(note);
         }
       }
     }, 50);
