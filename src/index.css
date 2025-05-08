@@ -1,7 +1,14 @@
 @import 'tailwindcss';
-// 전역 스타일 설정
+
+/* 전역 스타일 설정 */
 @layer base {
   body {
     @apply overflow-x-hidden text-[14px] leading-[1.2] tracking-[-0.05em];
+  }
+
+  /* 숫자 input의 스핀 버튼 항상 표시 */
+  input[type='number']::-webkit-inner-spin-button {
+    opacity: 1 !important;
+    display: inline-block;
   }
 }

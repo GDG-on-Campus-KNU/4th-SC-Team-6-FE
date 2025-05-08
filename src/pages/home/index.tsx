@@ -1,8 +1,9 @@
+import Animation3D from './components/Animation3D';
+
 export default function Home() {
   return (
-    // 단순 페이지 표시 용 스타일링이라 삭제 후 작성하시면 됩니다
-    <div className="flex h-screen items-center justify-center">
-      <h1 className="text-2xl font-bold text-gray-800">Home Page</h1>
+    <div className="flex h-screen w-full flex-col items-center justify-center">
+      <Animation3D />
     </div>
   );
 }
