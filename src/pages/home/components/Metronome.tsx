@@ -12,6 +12,19 @@ export default function Metronome({ particleGroups }: MetronomeProps) {
   const [bpm, setBpm] = useState<number>(50);
   let beatCount = 0;
 
+  // function giveFeedback() {
+  //   particleGroups.forEach((points) => {
+  //     gsap.to(points.scale, {
+  //       x: 3,
+  //       y: 3,
+  //       z: 3,
+  //       duration: 0.2,
+  //       yoyo: true,
+  //       repeat: 1,
+  //     });
+  //   });
+  // }
+
   function ensureAudioContext() {
     if (!audioCtxRef.current) {
       audioCtxRef.current = new window.AudioContext();
@@ -82,6 +95,7 @@ export default function Metronome({ particleGroups }: MetronomeProps) {
         ensureAudioContext();
         const value = Number(e.target.value);
         setBpm(Math.max(40, Math.min(150, value)));
+        // giveFeedback();
       }}
       className="h-[50px] w-[60px] rounded border p-2 font-bold"
     />

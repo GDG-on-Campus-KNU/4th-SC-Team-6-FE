@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { loadCharacter } from '../utils/loadCharacter';
-import { loadFont } from '../utils/loadFont';
+import { addNoteText, loadFont } from '../utils/loadFont';
 import { loadParticles } from '../utils/loadParticles';
 import { loadLight } from '../utils/loadLight';
 import { getSize } from '../utils/getSize';
+import { getCanvasText } from '../utils/getCanvasText';
 import RecordButton from '../../../components/RecordButton';
 import WearableButton from '../../../components/WearableButton';
 import Metronome from './Metronome';
@@ -12,6 +13,7 @@ import ProgressBar from './ProgressBar';
 
 export default function Animation3D() {
   const mountRef = useRef<HTMLDivElement | null>(null);
+  const sceneRef = useRef<THREE.Scene | null>(null);
 
   const particleGroupsRef = useRef<THREE.Points[]>([]);
   const [ready, setReady] = useState(false);
@@ -19,7 +21,12 @@ export default function Animation3D() {
 
   const [currentNote, setCurrentNote] = useState<string | null>(null);
 
-  console.log(`엄마 컴포넌트: ${currentNote}`);
+  useEffect(() => {
+    if (ready && sceneRef.current && currentNote) {
+      void addNoteText(sceneRef.current, currentNote);
+      console.log(`부모 컴포넌트: ${currentNote}`);
+    }
+  }, [currentNote, ready]);
 
   useEffect(() => {
     const run = async () => {
@@ -37,6 +44,7 @@ export default function Animation3D() {
       renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
       const scene = new THREE.Scene();
+      sceneRef.current = scene;
       const camera = new THREE.PerspectiveCamera(
         75,
         size.width / size.height,
@@ -47,6 +55,7 @@ export default function Animation3D() {
 
       /** 요소 불러오기*/
       await loadFont(scene);
+      getCanvasText(scene);
       const mixer = await loadCharacter(scene, camera, loadingManager);
       loadLight(scene);
 
@@ -101,7 +110,9 @@ export default function Animation3D() {
       </div>
       <div className="flex items-center justify-center gap-6 pt-2">
         <RecordButton
-          onNoteDetected={(detectedNote) => setCurrentNote(detectedNote)}
+          onNoteDetected={(detectedNote) => {
+            setCurrentNote(detectedNote);
+          }}
         />
         <WearableButton />
         {ready && <Metronome particleGroups={particleGroupsRef.current} />}

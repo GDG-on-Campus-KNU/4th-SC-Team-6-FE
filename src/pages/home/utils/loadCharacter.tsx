@@ -5,7 +5,7 @@ export async function loadCharacter(
   scene: THREE.Scene,
   camera: THREE.Camera,
   loadingManager: THREE.LoadingManager
-) {
+): Promise<THREE.AnimationMixer> {
   // GLTFLoader의 로딩 상태를 loadingManager로 관리할 수 있음
   const gltfLoader = new GLTFLoader(loadingManager);
   const gltf = await gltfLoader.loadAsync('/public/models/character.gltf');
@@ -26,12 +26,42 @@ export async function loadCharacter(
   camera.lookAt(model.position); // 모델의 위치를 바라보도록
 
   const mixer = new THREE.AnimationMixer(model);
-  let currentAction;
+  let currentAction: THREE.AnimationAction | null = null;
   if (gltf.animations.length > 0) {
     // clip으로부터 에니메이션을 제어 할 수 있는 action 객체를 얻을 수 있음
-    currentAction = mixer.clipAction(gltf.animations[6]);
+    currentAction = mixer.clipAction(gltf.animations[16]);
     currentAction.play(); // animation 재생 시작
   }
+
+  const raycaster = new THREE.Raycaster();
+  const pointer = new THREE.Vector2();
+  const dancingAnimations = gltf.animations;
+  console.log(dancingAnimations.length);
+
+  function handlePointerDown(e: PointerEvent) {
+    pointer.x = (e.clientX / window.innerWidth - 0.5) * 2;
+    pointer.y = (e.clientY / window.innerHeight - 0.5) * 2;
+
+    raycaster.setFromCamera(pointer, camera);
+
+    const intersects = raycaster.intersectObjects(scene.children);
+    const object = intersects[0]?.object;
+
+    if (object?.name === 'Ch09') {
+      const previousAction = currentAction;
+      const index = Math.round(Math.random() * (dancingAnimations.length - 1));
+      currentAction = mixer.clipAction(dancingAnimations[index]);
+
+      // currentAction.loop = THREE.LoopOnce;
+      currentAction.clampWhenFinished = true;
+
+      if (previousAction !== currentAction) {
+        previousAction?.fadeOut(0.5);
+        currentAction.reset().fadeIn(0.5).play();
+      }
+    }
+  }
+  window.addEventListener('pointerdown', handlePointerDown);
 
   return mixer;
 }
