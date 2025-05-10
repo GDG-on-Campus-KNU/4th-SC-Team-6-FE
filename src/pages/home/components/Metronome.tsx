@@ -85,6 +85,7 @@ export default function Metronome({ particleGroups }: MetronomeProps) {
       }
     };
   }, [bpm, particleGroups]);
+
   return (
     <input
       type="number"
