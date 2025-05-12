@@ -6,10 +6,6 @@ export interface FeedbackDetail {
   title: string;
   artist: string;
   score: number;
-<<<<<<< HEAD
-=======
-  message: string;
->>>>>>> 1c69cda (feature(feedback): 피드백 페이지 및 상세 기능 구현)
   createdAt: string;
 }
 
