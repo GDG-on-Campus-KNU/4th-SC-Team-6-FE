@@ -20,6 +20,7 @@ export default function Animation3D() {
   const particleGroupsRef = useRef<THREE.Points[]>([]);
   const [ready, setReady] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
+  const [bpm, setBpm] = useState<number>(50);
   const loadingManager = new THREE.LoadingManager();
 
   const [currentNote, setCurrentNote] = useState<string | null>(null);
@@ -122,8 +123,14 @@ export default function Animation3D() {
           isRecording={isRecording}
           onNoteDetected={setCurrentNote}
         />
-        <WearableButton />
-        {ready && <Metronome particleGroups={particleGroupsRef.current} />}
+        <WearableButton bpm={bpm} />
+        {ready && (
+          <Metronome
+            particleGroups={particleGroupsRef.current}
+            bpm={bpm}
+            onBpmChange={(newBpm) => setBpm(newBpm)}
+          />
+        )}
       </div>
     </>
   );
