@@ -1,8 +1,28 @@
+import PageLayout from '../../components/PageLayout';
+import UserInfoCard from './components/UserInfoCard';
+import PlaysSection, { Play } from './components/PlaysSection';
+import FeedbacksSection, { Feedback } from './components/FeedbackSection';
+
+const dummyPlays: Play[] = [
+  { id: 1, title: 'Live Forever' },
+  { id: 2, title: 'Supersonic' },
+  { id: 3, title: 'Whatever' },
+];
+
+const dummyFeedbacks: Feedback[] = [
+  { id: 1, title: 'Live Forever', score: 75 },
+  { id: 2, title: 'Supersonic', score: 85 },
+  { id: 3, title: 'Whatever', score: 75 },
+];
+
 export default function MyPage() {
   return (
-    // 단순 페이지 표시 용 스타일링이라 삭제 후 작성하시면 됩니다
-    <div className="flex h-screen items-center justify-center">
-      <h1 className="text-2xl font-bold text-gray-800">My Page</h1>
-    </div>
+    <PageLayout title="My Page">
+      <div className="mt-8 space-y-8">
+        <UserInfoCard name="User" />
+        <PlaysSection plays={dummyPlays} />
+        <FeedbacksSection feedbacks={dummyFeedbacks} />
+      </div>
+    </PageLayout>
   );
 }
