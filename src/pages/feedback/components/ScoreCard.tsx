@@ -4,7 +4,6 @@ import 'react-circular-progressbar/dist/styles.css';
 
 interface ScoreCardProps {
   score: number;
-<<<<<<< HEAD
 }
 
 const messages = [
@@ -18,19 +17,7 @@ const messages = [
   { minScore: 0, message: "Let's try again together 🤗" },
 ];
 
-// 점수 카드 UI 컴포넌트
-// - CircularProgressbar를 사용해 원형 그래프로 점수 시각화
-// - 애니메이션 효과로 점수가 0부터 score까지 올라가도록 구성
 function ScoreCard({ score }: ScoreCardProps) {
-=======
-  message: string;
-}
-
-// 점수 카드 UI 컴포넌트
-// - CircularProgressbar를 사용해 원형 그래프로 점수 시각화
-// - 애니메이션 효과로 점수가 0부터 score까지 올라가도록 구성
-function ScoreCard({ score, message }: ScoreCardProps) {
->>>>>>> 1c69cda (feature(feedback): 피드백 페이지 및 상세 기능 구현)
   const [animatedScore, setAnimatedScore] = useState(0);
 
   useEffect(() => {
@@ -40,16 +27,11 @@ function ScoreCard({ score, message }: ScoreCardProps) {
         clearInterval(interval);
         return score;
       });
-<<<<<<< HEAD
     }, 10);
-=======
-    }, 10); // 10ms 간격으로 1씩 증가
->>>>>>> 1c69cda (feature(feedback): 피드백 페이지 및 상세 기능 구현)
 
     return () => clearInterval(interval);
   }, [score]);
 
-<<<<<<< HEAD
   const getMessage = () => {
     const found = messages.find((item) => score >= item.minScore);
     return found?.message ?? '';
@@ -57,11 +39,6 @@ function ScoreCard({ score, message }: ScoreCardProps) {
 
   return (
     <div className="w-full max-w-xs rounded-3xl bg-white/70 px-6 py-10 text-center shadow-lg md:max-w-md">
-=======
-  return (
-    <div className="w-full max-w-xs rounded-3xl bg-white/70 px-6 py-10 text-center shadow-lg md:max-w-md">
-      {/* 원형 점수 그래프 영역 */}
->>>>>>> 1c69cda (feature(feedback): 피드백 페이지 및 상세 기능 구현)
       <div className="mx-auto mb-6 h-36 w-36 md:h-44 md:w-44">
         <CircularProgressbar
           value={animatedScore}
@@ -76,11 +53,7 @@ function ScoreCard({ score, message }: ScoreCardProps) {
           })}
         />
       </div>
-<<<<<<< HEAD
       <p className="text-xl font-bold md:text-2xl">{getMessage()}</p>
-=======
-      <p className="text-xl font-bold md:text-2xl">{message}</p>
->>>>>>> 1c69cda (feature(feedback): 피드백 페이지 및 상세 기능 구현)
       <p className="text-sm text-gray-800 md:text-base">
         You got {score} points!
       </p>
