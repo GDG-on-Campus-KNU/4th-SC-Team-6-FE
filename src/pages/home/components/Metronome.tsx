@@ -1,29 +1,21 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import * as THREE from 'three';
 
 interface MetronomeProps {
   particleGroups: THREE.Points[];
+  bpm: number;
+  onBpmChange: (newBpm: number) => void;
 }
 
-export default function Metronome({ particleGroups }: MetronomeProps) {
+export default function Metronome({
+  particleGroups,
+  bpm,
+  onBpmChange,
+}: MetronomeProps) {
   const metronomeRef = useRef<number | null>(null);
   const audioCtxRef = useRef<AudioContext | null>(null);
-  const [bpm, setBpm] = useState<number>(50);
   let beatCount = 0;
-
-  // function giveFeedback() {
-  //   particleGroups.forEach((points) => {
-  //     gsap.to(points.scale, {
-  //       x: 3,
-  //       y: 3,
-  //       z: 3,
-  //       duration: 0.2,
-  //       yoyo: true,
-  //       repeat: 1,
-  //     });
-  //   });
-  // }
 
   function ensureAudioContext() {
     if (!audioCtxRef.current) {
@@ -86,18 +78,24 @@ export default function Metronome({ particleGroups }: MetronomeProps) {
     };
   }, [bpm, particleGroups]);
 
+  const handleBpmChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    ensureAudioContext();
+    const value = Number(e.target.value);
+    onBpmChange(Math.max(40, Math.min(150, value)));
+  };
+
   return (
     <input
       type="number"
       min={40}
       max={150}
       value={bpm}
-      onChange={(e) => {
-        ensureAudioContext();
-        const value = Number(e.target.value);
-        setBpm(Math.max(40, Math.min(150, value)));
-        // giveFeedback();
-      }}
+      // onChange={(e) => {
+      //   ensureAudioContext();
+      //   const value = Number(e.target.value);
+      //   setBpm(Math.max(40, Math.min(150, value)));
+      // }}
+      onChange={handleBpmChange}
       className="h-[50px] w-[60px] rounded border p-2 font-bold"
     />
   );
