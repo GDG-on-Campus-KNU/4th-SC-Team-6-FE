@@ -1,7 +1,6 @@
 import * as THREE from 'three';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
-import { gsap } from 'gsap';
 
 export async function loadFont(scene: THREE.Scene) {
   const fontLoader = new FontLoader();
@@ -43,77 +42,81 @@ export async function loadFont(scene: THREE.Scene) {
   }
 }
 
-export async function addNoteText(
-  scene: THREE.Scene,
-  note: string
-): Promise<void> {
-  const fontLoader = new FontLoader();
+// export async function addNoteText(
+//   scene: THREE.Scene,
+//   note: string
+// ): Promise<void> {
+//   const fontLoader = new FontLoader();
 
-  try {
-    const existingText = scene.getObjectByName('noteText') as THREE.Mesh;
-    if (existingText) {
-      scene.remove(existingText);
-      existingText.geometry.dispose();
-      if (Array.isArray(existingText.material)) {
-        existingText.material.forEach((mat: THREE.Material) => {
-          mat.dispose();
-        });
-      } else {
-        existingText.material.dispose();
-      }
-    }
+//   try {
+//     const existingText = scene.getObjectByName('noteText') as THREE.Mesh;
+//     if (existingText) {
+//       scene.remove(existingText);
+//       existingText.geometry.dispose();
+//       if (Array.isArray(existingText.material)) {
+//         existingText.material.forEach((mat: THREE.Material) => {
+//           mat.dispose();
+//         });
+//       } else {
+//         existingText.material.dispose();
+//       }
+//     }
 
-    const font = await fontLoader.loadAsync('/public/fonts/fontText.json');
-    const message = `${note}`;
-    const textGeometry = new TextGeometry(message, {
-      font,
-      size: 0.5,
-      height: 0.01,
-      bevelEnabled: true,
-      bevelSegments: 5,
-      bevelSize: 0.02,
-      bevelThickness: 0.02,
-    });
+//     const font = await fontLoader.loadAsync('/fonts/fontText.json');
+//     const message = `${note}`;
+//     const textGeometry = new TextGeometry(message, {
+//       font,
+//       size: 0.5,
+//       height: 0.01,
+//       bevelEnabled: true,
+//       bevelSegments: 5,
+//       bevelSize: 0.02,
+//       bevelThickness: 0.02,
+//     });
 
-    const textMaterial = new THREE.MeshPhongMaterial({ color: 0xffffff });
-    const text = new THREE.Mesh(textGeometry, textMaterial);
+//     const textMaterial = new THREE.MeshPhongMaterial({
+//       color: 0xffffff,
+//       transparent: true,
+//       opacity: 1,
+//     });
+//     const text = new THREE.Mesh(textGeometry, textMaterial);
 
-    text.name = 'noteText';
+//     text.name = 'noteText';
 
-    text.scale.set(6, 6, 0.01);
-    text.position.set(-2, -8, 2);
+//     text.scale.set(6, 6, 0.01);
+//     text.position.set(-2, -8, 2);
 
-    scene.add(text);
+//     scene.add(text);
 
-    gsap.fromTo(
-      text.scale,
-      { x: text.scale.x, y: text.scale.y, z: text.scale.z },
-      {
-        x: text.scale.x * 1.1,
-        y: text.scale.y * 1.1,
-        z: text.scale.z * 1.1,
-        duration: 0.3,
-        yoyo: true,
-        repeat: 1,
-        ease: 'power1.inOut',
-      }
-    );
+//     // gsap.fromTo(
+//     //   text.scale,
+//     //   { x: text.scale.x, y: text.scale.y, z: text.scale.z },
+//     //   {
+//     //     x: text.scale.x * 1.1,
+//     //     y: text.scale.y * 1.1,
+//     //     z: text.scale.z * 1.1,
+//     //     duration: 0.3,
+//     //     yoyo: true,
+//     //     repeat: 1,
+//     //     ease: 'power1.inOut',
+//     //   }
+//     // );
 
-    gsap.to(textMaterial, {
-      opacity: 0,
-      duration: 1.5,
-      delay: 1,
-      onComplete: () => {
-        scene.remove(text);
-        text.geometry.dispose();
-        if (Array.isArray(text.material)) {
-          text.material.forEach((mat: THREE.Material) => mat.dispose());
-        } else {
-          (text.material as THREE.Material).dispose();
-        }
-      },
-    });
-  } catch (error) {
-    console.error('노트 텍스트 로딩 실패:', error);
-  }
-}
+//     // gsap.to(textMaterial, {
+//     //   opacity: 0,
+//     //   duration: 1.5,
+//     //   delay: 2,
+//     //   onComplete: () => {
+//     //     scene.remove(text);
+//     //     text.geometry.dispose();
+//     //     if (Array.isArray(text.material)) {
+//     //       text.material.forEach((mat: THREE.Material) => mat.dispose());
+//     //     } else {
+//     //       (text.material as THREE.Material).dispose();
+//     //     }
+//     //   },
+//     // });
+//   } catch (error) {
+//     console.error('노트 텍스트 로딩 실패:', error);
+//   }
+// }
