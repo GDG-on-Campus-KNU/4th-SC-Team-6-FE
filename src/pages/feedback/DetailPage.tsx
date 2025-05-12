@@ -20,14 +20,11 @@ function FeedbackDetailPage() {
       title: 'Perfect Rhythm',
       artist: 'Oasis',
       score: 92,
-      message: 'Excellent timing and flow!',
       createdAt: '2025-04-01T12:00:00Z',
     };
 
-    setTimeout(() => {
-      setData(mockData);
-      setLoading(false);
-    }, 500);
+    setData(mockData); // ✅ 바로 설정
+    setLoading(false);
 
     /* 실제 API 연동 시 주석 해제
     fetchFeedbackDetail(Number(id), token)
@@ -41,12 +38,12 @@ function FeedbackDetailPage() {
   if (!data)
     return <div className="text-center text-red-500">Data not found</div>;
 
-  const { title, score, message } = data;
+  const { title, score } = data;
 
   return (
     <PageLayout title={title}>
       <div className="flex flex-col items-center justify-center gap-8 px-4 pt-4 drop-shadow-lg md:px-0">
-        <ScoreCard score={score} message={message} />
+        <ScoreCard score={score} />
         <FeedbackActions />
       </div>
     </PageLayout>
