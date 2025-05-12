@@ -1,9 +1,13 @@
 import { useState } from 'react';
 import { MdOutlineVibration } from 'react-icons/md';
 
-function WearableButton() {
-  const [isConnected, setIsConnected] = useState(false);
+interface WearableButtonProps {
+  bpm: number;
+}
 
+function WearableButton(bpm: WearableButtonProps) {
+  const [isConnected, setIsConnected] = useState(false);
+  console.log(bpm);
   function handleConnect() {
     setIsConnected((prev) => !prev);
   }
