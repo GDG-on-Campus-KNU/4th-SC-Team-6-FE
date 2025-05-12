@@ -3,13 +3,13 @@ import { gsap } from 'gsap';
 import * as THREE from 'three';
 
 interface MetronomeProps {
-  particleGroups: THREE.Points[];
+  particle: THREE.Points;
   bpm: number;
   onBpmChange: (newBpm: number) => void;
 }
 
 export default function Metronome({
-  particleGroups,
+  particle,
   bpm,
   onBpmChange,
 }: MetronomeProps) {
@@ -50,6 +50,7 @@ export default function Metronome({
     }
 
     const interval = (60 / bpm) * 1000;
+    console.log(interval);
 
     metronomeRef.current = window.setInterval(() => {
       giveFeedback();
@@ -59,15 +60,13 @@ export default function Metronome({
     }, interval);
 
     function giveFeedback() {
-      particleGroups.forEach((points) => {
-        gsap.to(points.scale, {
-          x: 3,
-          y: 3,
-          z: 3,
-          duration: 0.2,
-          yoyo: true,
-          repeat: 1,
-        });
+      gsap.to(particle.scale, {
+        x: 3,
+        y: 3,
+        z: 3,
+        duration: 0.2,
+        yoyo: true,
+        repeat: 1,
       });
     }
 
@@ -76,7 +75,7 @@ export default function Metronome({
         clearInterval(metronomeRef.current);
       }
     };
-  }, [bpm, particleGroups]);
+  }, [bpm, particle]);
 
   const handleBpmChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     ensureAudioContext();
