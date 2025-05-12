@@ -6,27 +6,23 @@ import { loadParticles } from '../utils/loadParticles';
 import { loadLight } from '../utils/loadLight';
 import { getSize } from '../utils/getSize';
 import { getCanvasText } from '../utils/getCanvasText';
-import RecordButton from '../../../components/RecordButton';
-import WearableButton from '../../../components/WearableButton';
+import RecordButton from './RecordButton';
+import WearableButton from './WearableButton';
 import Metronome from './Metronome';
 import ProgressBar from './ProgressBar';
+import NoteDetector from './NoteDetector';
 
 export default function Animation3D() {
   const mountRef = useRef<HTMLDivElement | null>(null);
   const sceneRef = useRef<THREE.Scene | null>(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   const particleGroupsRef = useRef<THREE.Points[]>([]);
   const [ready, setReady] = useState(false);
+  const [isRecording, setIsRecording] = useState(false);
   const loadingManager = new THREE.LoadingManager();
 
   const [currentNote, setCurrentNote] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (ready && sceneRef.current && currentNote) {
-      void addNoteText(sceneRef.current, currentNote);
-      console.log(`부모 컴포넌트: ${currentNote}`);
-    }
-  }, [currentNote, ready]);
 
   useEffect(() => {
     const run = async () => {
@@ -37,6 +33,7 @@ export default function Animation3D() {
 
       // Scene, Camera, Renderer 생성
       const renderer = new THREE.WebGLRenderer({ antialias: true });
+      canvasRef.current = renderer.domElement;
       renderer.setSize(size.width, size.height);
       container.appendChild(renderer.domElement);
 
@@ -100,6 +97,13 @@ export default function Animation3D() {
     void run();
   }, []);
 
+  useEffect(() => {
+    if (ready && sceneRef.current && currentNote) {
+      void addNoteText(sceneRef.current, currentNote);
+      console.log(`note: ${currentNote}`);
+    }
+  }, [currentNote, ready]);
+
   return (
     <>
       <div
@@ -110,9 +114,13 @@ export default function Animation3D() {
       </div>
       <div className="flex items-center justify-center gap-6 pt-2">
         <RecordButton
-          onNoteDetected={(detectedNote) => {
-            setCurrentNote(detectedNote);
-          }}
+          isRecording={isRecording}
+          onToggle={() => setIsRecording((prev) => !prev)}
+          canvasRef={canvasRef}
+        />
+        <NoteDetector
+          isRecording={isRecording}
+          onNoteDetected={setCurrentNote}
         />
         <WearableButton />
         {ready && <Metronome particleGroups={particleGroupsRef.current} />}
