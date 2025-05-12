@@ -17,6 +17,9 @@ const messages = [
   { minScore: 0, message: "Let's try again together 🤗" },
 ];
 
+// 점수 카드 UI 컴포넌트
+// - CircularProgressbar를 사용해 원형 그래프로 점수 시각화
+// - 애니메이션 효과로 점수가 0부터 score까지 올라가도록 구성
 function ScoreCard({ score }: ScoreCardProps) {
   const [animatedScore, setAnimatedScore] = useState(0);
 
@@ -27,7 +30,7 @@ function ScoreCard({ score }: ScoreCardProps) {
         clearInterval(interval);
         return score;
       });
-    }, 10);
+    }, 10); // 10ms 간격으로 1씩 증가
 
     return () => clearInterval(interval);
   }, [score]);
