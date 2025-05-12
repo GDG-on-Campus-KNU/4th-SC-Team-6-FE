@@ -15,6 +15,7 @@ function FeedbackDetailPage() {
     if (!id) return;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     // ✅ UI 확인용 mock 데이터 적용
 =======
 <<<<<<< HEAD
@@ -30,22 +31,29 @@ function FeedbackDetailPage() {
     // ✅ UI 확인용 mock 데이터 적용
 >>>>>>> 1c69cda (feature(feedback): 피드백 페이지 및 상세 기능 구현)
 >>>>>>> a2ba2f4 (feature(feedback): 피드백 페이지 및 상세 기능 구현)
+=======
+    // ✅ UI 확인용 mock 데이터 적용
+>>>>>>> 261b0ad (fix: 충돌해결)
     const mockData: FeedbackDetail = {
       id: Number(id),
       title: 'Perfect Rhythm',
       artist: 'Oasis',
       score: 92,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> a2ba2f4 (feature(feedback): 피드백 페이지 및 상세 기능 구현)
+=======
+>>>>>>> 261b0ad (fix: 충돌해결)
       createdAt: '2025-04-01T12:00:00Z',
     };
 
     setData(mockData); // ✅ 바로 설정
     setLoading(false);
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -69,6 +77,8 @@ function FeedbackDetailPage() {
 =======
 >>>>>>> 1c69cda (feature(feedback): 피드백 페이지 및 상세 기능 구현)
 >>>>>>> a2ba2f4 (feature(feedback): 피드백 페이지 및 상세 기능 구현)
+=======
+>>>>>>> 261b0ad (fix: 충돌해결)
 
     /* 실제 API 연동 시 주석 해제
     fetchFeedbackDetail(Number(id), token)
@@ -83,6 +93,7 @@ function FeedbackDetailPage() {
     return <div className="text-center text-red-500">Data not found</div>;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const { title, score } = data;
 =======
 <<<<<<< HEAD
@@ -99,11 +110,15 @@ function FeedbackDetailPage() {
   const { title, score, message } = data;
 >>>>>>> 1c69cda (feature(feedback): 피드백 페이지 및 상세 기능 구현)
 >>>>>>> a2ba2f4 (feature(feedback): 피드백 페이지 및 상세 기능 구현)
+=======
+  const { title, score } = data;
+>>>>>>> 261b0ad (fix: 충돌해결)
 
   return (
     <PageLayout title={title}>
       <div className="flex flex-col items-center justify-center gap-8 px-4 pt-4 drop-shadow-lg md:px-0">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <ScoreCard score={score} />
 =======
 <<<<<<< HEAD
@@ -120,6 +135,9 @@ function FeedbackDetailPage() {
         <ScoreCard score={score} message={message} />
 >>>>>>> 1c69cda (feature(feedback): 피드백 페이지 및 상세 기능 구현)
 >>>>>>> a2ba2f4 (feature(feedback): 피드백 페이지 및 상세 기능 구현)
+=======
+        <ScoreCard score={score} />
+>>>>>>> 261b0ad (fix: 충돌해결)
         <FeedbackActions />
       </div>
     </PageLayout>
