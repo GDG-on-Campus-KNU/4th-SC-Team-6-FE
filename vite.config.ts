@@ -6,4 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   assetsInclude: ['**/*.gltf', '**/*.glb'], // .gltf 파일을 인식
+  define: {
+    global: {},
+  },
 });
