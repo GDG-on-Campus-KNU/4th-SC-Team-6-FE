@@ -26,13 +26,13 @@
   }
 
   .custom-progress::-webkit-progress-value {
-    background-color: #81d8cf;
+    background-color: #495057;
     border-radius: 9999px;
     transition: width 0.3s ease;
   }
 
   .custom-progress::-moz-progress-bar {
-    background-color: #81d8cf;
+    background-color: #495057;
     border-radius: 9999px;
   }
 }
