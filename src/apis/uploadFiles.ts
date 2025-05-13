@@ -19,10 +19,14 @@ export async function uploadFiles(
       validateStatus: (status) => status >= 200 && status < 400,
     });
 
-    const location = res.headers['location'] as string;
+    let location = res.headers['location'] as string;
 
     if (!location) {
       throw new Error('Location 헤더가 없습니다.');
+    }
+
+    if (location.startsWith('/')) {
+      location = new URL(location, window.location.origin).toString();
     }
 
     return {
