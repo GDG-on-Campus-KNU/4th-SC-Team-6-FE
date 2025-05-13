@@ -33,6 +33,7 @@ export default function Animation3D() {
         void createNoteBurts(sceneRef.current!, currentNote);
         createNoteWave(sceneRef.current!, currentNote);
       });
+      console.log(currentNote);
     }
   }, [currentNote, isSceneReady]);
 

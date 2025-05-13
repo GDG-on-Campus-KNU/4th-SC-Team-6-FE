@@ -13,11 +13,11 @@ export function createNoteBurts(scene: THREE.Scene, note: string) {
 
   const color = new THREE.Color(colorMap[note]);
 
-  const geometry = new THREE.SphereGeometry(0.1, 8, 8);
+  const geometry = new THREE.SphereGeometry(0.1, 1, 1);
   const material = new THREE.MeshBasicMaterial({ color });
   const particles: THREE.Mesh[] = [];
 
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 300; i++) {
     const particle = new THREE.Mesh(geometry, material.clone());
     particle.position.set(0, 0, 0);
     scene.add(particle);
