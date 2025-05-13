@@ -1,4 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
+import { Client, IMessage } from '@stomp/stompjs';
+import SockJS from 'sockjs-client';
+import axios from 'axios';
 import { MdOutlineVibration } from 'react-icons/md';
 
 interface WearableButtonProps {
@@ -7,41 +10,56 @@ interface WearableButtonProps {
 
 function WearableButton({ bpm }: WearableButtonProps) {
   const [isConnected, setIsConnected] = useState(false);
-  const socketRef = useRef<WebSocket | null>(null);
+  const clientRef = useRef<Client | null>(null);
 
   useEffect(() => {
-    const socket = new WebSocket('ws://your-server-address/ws');
-    socketRef.current = socket;
+    // TODO: 실제 주소로 교체
+    const socket = new (SockJS as unknown as new (url: string) => WebSocket)(
+      'http://localhost:8080/ws'
+    );
+    const client = new Client({
+      webSocketFactory: () => socket,
+      reconnectDelay: 5000,
+      onConnect: () => {
+        console.log('WebSocket connected');
 
-    socket.onopen = () => console.log('WebSocket connected');
-    socket.onmessage = (e) => console.log('Message from watch:', e.data);
-    socket.onclose = () => console.log('WebSocket disconnected');
-    socket.onerror = (e) => console.error('WebSocket error:', e);
+        client.subscribe(
+          '/api/bpm/wearable/notification',
+          (message: IMessage) => {
+            const bpmValue = parseInt(message.body);
+            console.log('Received from server:', bpmValue);
+          }
+        );
+      },
+    });
+
+    client.activate();
+    clientRef.current = client;
 
     return () => {
-      socket.close();
+      void client.deactivate();
     };
   }, []);
 
-  const handleConnect = () => {
-    const newConnectionState = !isConnected;
-    setIsConnected(newConnectionState);
+  const handleConnect = async () => {
+    const valueToSend = isConnected ? -1 : bpm;
 
-    if (!socketRef.current || socketRef.current.readyState !== WebSocket.OPEN) {
-      console.warn('WebSocket is not connected');
-      return;
-    }
-
-    if (newConnectionState) {
-      socketRef.current.send(JSON.stringify({ type: 'start', bpm }));
-    } else {
-      socketRef.current.send(JSON.stringify({ type: 'stop' }));
+    try {
+      await axios.post('/api/bpm', valueToSend, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      setIsConnected(!isConnected);
+      console.log(`Sent BPM: ${valueToSend}`);
+    } catch (error) {
+      console.error('Failed to send BPM:', error);
     }
   };
 
   return (
     <button
-      onClick={handleConnect}
+      onClick={() => void handleConnect()}
       className={`flex h-[60px] w-[60px] items-center justify-center rounded-[20px] shadow-lg ${
         isConnected ? 'bg-[#13c5b3]' : 'bg-gray-300'
       }`}

@@ -28,16 +28,6 @@ export default function Animation3D() {
   const [currentNote, setCurrentNote] = useState<string | null>(null);
 
   useEffect(() => {
-    if (isSceneReady && currentNote && sceneRef.current) {
-      requestAnimationFrame(() => {
-        void createNoteBurts(sceneRef.current!, currentNote);
-        createNoteWave(sceneRef.current!, currentNote);
-      });
-      console.log(currentNote);
-    }
-  }, [currentNote, isSceneReady]);
-
-  useEffect(() => {
     const run = async () => {
       const container = mountRef.current;
 
@@ -104,6 +94,16 @@ export default function Animation3D() {
     };
     void run();
   }, []);
+
+  useEffect(() => {
+    if (isSceneReady && currentNote && sceneRef.current) {
+      requestAnimationFrame(() => {
+        void createNoteBurts(sceneRef.current!, currentNote);
+        createNoteWave(sceneRef.current!, currentNote);
+      });
+      console.log(currentNote);
+    }
+  }, [currentNote, isSceneReady]);
 
   return (
     <>
