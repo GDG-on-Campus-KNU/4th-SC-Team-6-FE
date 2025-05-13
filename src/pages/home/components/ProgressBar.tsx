@@ -18,7 +18,6 @@ export default function ProgressBar({ loadingManager }: ProgressBarProps) {
 
     loadingManager.onLoad = () => {
       if (progressContainerRef.current) {
-        console.log('tlfgoddhks');
         setIsLoading(false);
       }
     };
