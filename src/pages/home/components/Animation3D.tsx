@@ -125,9 +125,9 @@ export default function Animation3D() {
           onNoteDetected={setCurrentNote}
         />
         <WearableButton bpm={bpm} />
-        {ready && (
+        {ready && particleRef.current && (
           <Metronome
-            particle={particleRef.current as THREE.Points}
+            particle={particleRef.current}
             bpm={bpm}
             onBpmChange={(newBpm) => setBpm(newBpm)}
           />
