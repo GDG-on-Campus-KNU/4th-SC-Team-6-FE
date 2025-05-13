@@ -36,7 +36,6 @@ export async function loadCharacter(
   const raycaster = new THREE.Raycaster();
   const pointer = new THREE.Vector2();
   const dancingAnimations = gltf.animations;
-  console.log(dancingAnimations.length);
 
   function handlePointerDown(e: PointerEvent) {
     pointer.x = (e.clientX / window.innerWidth - 0.5) * 2;

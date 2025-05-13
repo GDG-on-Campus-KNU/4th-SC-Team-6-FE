@@ -50,7 +50,6 @@ export default function Metronome({
     }
 
     const interval = (60 / bpm) * 1000;
-    console.log(interval);
 
     metronomeRef.current = window.setInterval(() => {
       giveFeedback();
@@ -89,11 +88,6 @@ export default function Metronome({
       min={40}
       max={150}
       value={bpm}
-      // onChange={(e) => {
-      //   ensureAudioContext();
-      //   const value = Number(e.target.value);
-      //   setBpm(Math.max(40, Math.min(150, value)));
-      // }}
       onChange={handleBpmChange}
       className="h-[50px] w-[60px] rounded border p-2 font-bold"
     />
