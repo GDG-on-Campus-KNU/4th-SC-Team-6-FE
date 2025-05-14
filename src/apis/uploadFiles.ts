@@ -16,7 +16,7 @@ export async function uploadFiles(
   try {
     const res = await axios.post('/api/music', formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
-      validateStatus: (status) => status >= 200 && status < 400,
+      validateStatus: (status) => status === 201,
     });
 
     let location = res.headers['location'] as string;
