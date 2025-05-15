@@ -8,7 +8,7 @@ export async function loadCharacter(
 ): Promise<THREE.AnimationMixer> {
   // GLTFLoader의 로딩 상태를 loadingManager로 관리할 수 있음
   const gltfLoader = new GLTFLoader(loadingManager);
-  const gltf = await gltfLoader.loadAsync('/public/models/character.gltf');
+  const gltf = await gltfLoader.loadAsync('/models/character.gltf');
   const model = gltf.scene;
   model.scale.set(0.1, 0.1, 0.1);
   // 모델의 그림자를 설정 할 수 있도록
