@@ -33,10 +33,14 @@ export async function fetchFeedbackDetail(
 export async function fetchFeedbackList(
   token: string
 ): Promise<FeedbackSummary[]> {
-  const response = await axios.get<FeedbackSummary[]>(`/api/feedback`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+  const response = await axios.get<FeedbackSummary[]>(
+    `${apiBaseUrl}/api/feedback`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
   return response.data;
 }

@@ -48,5 +48,6 @@ export async function uploadFiles(
         console.error('기타 오류:', error.message);
       }
     }
+    throw new Error('파일 업로드 중 오류가 발생했습니다.');
   }
 }
