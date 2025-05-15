@@ -10,7 +10,7 @@ export default function ProgressBar({ loadingManager }: ProgressBarProps) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    loadingManager.onProgress = (url, loaded, total) => {
+    loadingManager.onProgress = (_url, loaded, total) => {
       if (progressBarRef.current) {
         progressBarRef.current.value = (loaded / total) * 100;
       }
