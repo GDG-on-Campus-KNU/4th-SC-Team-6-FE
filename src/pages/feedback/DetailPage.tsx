@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import PageLayout from '../../components/PageLayout';
-import { FeedbackDetail } from '../../apis/feedback';
+import { fetchFeedbackDetail, FeedbackDetail } from '../../apis/feedback';
 import ScoreCard from './components/ScoreCard';
 import FeedbackActions from './components/FeedbackActions';
 
@@ -11,9 +11,8 @@ function FeedbackDetailPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // error TS6133: 'token' is declared but its value is never read.
-    // const token = localStorage.getItem('token') || '';
-    // if (!id) return;
+    const token = localStorage.getItem('token') || '';
+    if (!id) return;
 
     // ✅ UI 확인용 mock 데이터 적용
     const mockData: FeedbackDetail = {
@@ -31,7 +30,6 @@ function FeedbackDetailPage() {
       .then((res) => setData(res))
       .catch((err) => console.error('Failed to fetch feedback detail:', err))
       .finally(() => setLoading(false));
-    
   }, [id]);
 
   if (loading) return <div className="text-center text-white">Loading...</div>;

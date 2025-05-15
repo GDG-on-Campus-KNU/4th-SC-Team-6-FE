@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PageLayout from '../../components/PageLayout';
 import MusicCard from './components/MusicCard';
-import { FeedbackSummary } from '../../apis/feedback';
+import { fetchFeedbackList, FeedbackSummary } from '../../apis/feedback';
 
 function FeedbackPage() {
   // ✅ UI 확인용 mock 데이터
@@ -23,7 +23,6 @@ function FeedbackPage() {
       .catch((err) => console.error('피드백 목록 가져오기 실패:', err))
       .finally(() => setLoading(false));
   }, []);
-
 
   if (loading) {
     return <div className="text-center text-white">Loading...</div>;
@@ -51,4 +50,3 @@ function FeedbackPage() {
 }
 
 export default FeedbackPage;
-
