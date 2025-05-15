@@ -35,7 +35,9 @@ function WritePage() {
   return (
     <PageLayout title="Write Post">
       <form
-        onSubmit={handleSubmit}
+        onSubmit={(e) => {
+          void handleSubmit(e); 
+        }}
         className="mx-auto flex w-full max-w-lg flex-col gap-6 p-4 drop-shadow-lg sm:max-w-xl md:max-w-2xl md:p-8"
       >
         <input

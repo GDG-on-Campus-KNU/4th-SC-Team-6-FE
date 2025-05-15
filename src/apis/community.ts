@@ -36,11 +36,15 @@ export interface PostDetail {
 
 // 게시글 목록 불러오기
 export async function fetchPosts(token: string): Promise<PostListResponse> {
-  const response = await axios.get<PostListResponse>('/api/community/post', {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+  const response = await axios.get<PostListResponse>(
+    `${apiBaseUrl}/api/community/post`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
   return response.data;
 }
 
