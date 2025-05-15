@@ -15,7 +15,6 @@ function FeedbackPage() {
   const [musicList, setMusicList] = useState<FeedbackSummary[]>(mockData);
   const [loading, setLoading] = useState(false);
 
-  
   useEffect(() => {
     const token = localStorage.getItem('token') || '';
 
