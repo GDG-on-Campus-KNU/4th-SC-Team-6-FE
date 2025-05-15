@@ -26,15 +26,16 @@ export default function Animation3D() {
   const loadingManager = new THREE.LoadingManager();
 
   const [currentNote, setCurrentNote] = useState<string | null>(null);
+
   useEffect(() => {
     if (isSceneReady && currentNote && sceneRef.current) {
-      requestAnimationFrame(() => {
+      setTimeout(() => {
         void createNoteBurts(sceneRef.current!, currentNote);
-        createNoteWave(sceneRef.current!, currentNote);
-      });
+        void createNoteWave(sceneRef.current!, currentNote);
+      }, 50);
       console.log(currentNote);
     }
-  }, [currentNote, isSceneReady]);
+  }, [currentNote]);
 
   useEffect(() => {
     const run = async () => {
