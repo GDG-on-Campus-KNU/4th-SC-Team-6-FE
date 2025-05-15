@@ -15,8 +15,7 @@ function FeedbackPage() {
   const [musicList, setMusicList] = useState<FeedbackSummary[]>(mockData);
   const [loading, setLoading] = useState(false);
 
-  /*
-  // 실제 API 연동 시 사용
+  
   useEffect(() => {
     const token = localStorage.getItem('token') || '';
 
@@ -25,7 +24,7 @@ function FeedbackPage() {
       .catch((err) => console.error('피드백 목록 가져오기 실패:', err))
       .finally(() => setLoading(false));
   }, []);
-  */
+
 
   if (loading) {
     return <div className="text-center text-white">Loading...</div>;
