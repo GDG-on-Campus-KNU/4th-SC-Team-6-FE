@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import PageLayout from '../../components/PageLayout';
 import MusicCard from './components/MusicCard';
-import { fetchFeedbackList, FeedbackSummary } from '../../apis/feedback';
+import { FeedbackSummary } from '../../apis/feedback';
 
 function FeedbackPage() {
   // ✅ UI 확인용 mock 데이터
