@@ -26,12 +26,11 @@ function FeedbackDetailPage() {
     setData(mockData); // ✅ 바로 설정
     setLoading(false);
 
-    /* 실제 API 연동 시 주석 해제
     fetchFeedbackDetail(Number(id), token)
       .then((res) => setData(res))
       .catch((err) => console.error('Failed to fetch feedback detail:', err))
       .finally(() => setLoading(false));
-    */
+    
   }, [id]);
 
   if (loading) return <div className="text-center text-white">Loading...</div>;
