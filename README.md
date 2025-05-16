@@ -1,5 +1,6 @@
-![image](https://github.com/user-attachments/assets/f6fbf568-3328-4488-aaf5-86a39890b6b7)
-
+<p align="center">
+  <img src="readme-images/feelodymain.png" alt="Feelody Preview" width="600" style="display:block; margin:auto;" />
+</p
 <br>
 
 # <div align=center> 🎵 Feelody  - Feel your melody
@@ -25,11 +26,14 @@ This tool bridges the gap between **hearing and feeling**, enabling true musical
 
   <h3>Innovate for Wellness</h3>
 
+<p align="center">
   <img 
-    src="https://github.com/user-attachments/assets/3f5c6b3f-462c-4f45-bad8-77c66894fbc5" 
+    src="readme-images/git3.png" 
     alt="Feelody Preview" 
-    width="400"
-/>
+    width="400" 
+    style="display:block; margin:auto;" 
+  />
+</p>
 
   <p>
     Create solutions that improve access to care and enhance patient outcomes.
@@ -43,22 +47,33 @@ This tool bridges the gap between **hearing and feeling**, enabling true musical
 
 <p align="center">
   <img 
-    src="https://github.com/user-attachments/assets/600967b2-7a3d-4bfa-b3d7-942d3e10eb71" 
+    src="readme-images/git4.png" 
     alt="Design Concept" 
-    width="800"
-/>
+    width="800" 
+    style="display:block; margin:auto;" 
+  />
 </p>
+
 
 <br><br>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/dee3ea08-bf9d-42bc-9a79-d53a6043bce9" alt="Emotional Concept" width="800"/>
+  <img 
+    src="readme-images/git5.png" 
+    alt="Design Concept" 
+    width="800" 
+    style="display:block; margin:auto;" 
+  />
 </p>
-<br><br>
 
 ##  <div align=center> ⭐ Key Features
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/34eb4f06-5e4b-4a61-a47f-1875174a3847" alt="Feelody Preview" width="800"/>
+  <img 
+    src="readme-images/gitkeyfeatures.png" 
+    alt="keyfeatures" 
+    width="800" 
+    style="display:block; margin:auto;" 
+  />
 </p>
 
 -  **Real-time Pitch & Rhythm Feedback**  
