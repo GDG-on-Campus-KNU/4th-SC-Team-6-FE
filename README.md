@@ -95,7 +95,7 @@ This tool bridges the gap between **hearing and feeling**, enabling true musical
 #  <div align=center> 🛠️ Architecture
 <p align="center">
   <img 
-    src="https://github.com/user-attachments/assets/04c9a602-4c8c-4e0d-aeca-ca9115435017" 
+    src="readme-images/architecture.png" 
     alt="IMG_6867" 
     width="800"
 />
@@ -124,7 +124,13 @@ The React frontend is deployed separately via Vercel, providing fast and optimiz
 
 # <div align=center>  🗂️ ERD Diagram
 
-![asdf](https://github.com/user-attachments/assets/3fd0c6c3-582f-4314-9111-06072a5b3dcd)
+<p align="center">
+  <img 
+    src="readme-images/erd.png" 
+    alt="IMG_6867" 
+    width="800"
+/>
+</p>
 
 <br><br>
 
